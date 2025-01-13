@@ -21,6 +21,14 @@ export class HttpService {
     return this.client.get(this.url + '/users/' + userId);
   }
 
+  getAllMatches(): Observable<Object> {
+    return this.client.get<any[]>(this.url + '/matches');
+  }
+
+  getOneMatch(matchId: any): Observable<Object> {
+    return this.client.get(this.url + '/matches/' + matchId);
+  }
+
   registerUser(body: any): Observable<Object> {
     console.log(body);
     return this.client.post(this.url + '/register', body);
