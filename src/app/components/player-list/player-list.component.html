@@ -1,0 +1,38 @@
+<div class="leaderboard">
+  <h2 class="title">TOP 100 ELO</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Pseudonyme</th>
+        <th>ELO</th>
+        <th>K/D</th>
+        <th>HS</th>
+        <th>Win Rate</th>
+        <th>Région</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players; let i = index" class="player-row">
+        <td>{{ i + 1 }}</td>
+        <td class="player-name">
+          <img
+            *ngIf="player.avatar"
+            [src]="player.avatar"
+            alt="Avatar"
+            class="avatar"
+          />
+          {{ player.name }}
+        </td>
+        <td>{{ player.elo }}</td>
+        <td>player.kd</td>
+        <td>player.hs %</td>
+        <td>player.winRate%</td>
+        <td>
+          <!-- <img *ngIf="player.countryFlag" [src]="player.countryFlag" alt="Country" class="country-flag" /> -->
+          player.region
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
