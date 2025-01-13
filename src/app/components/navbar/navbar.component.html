@@ -3,9 +3,15 @@
     <li><a routerLink="/">Home</a></li>
     <li><a routerLink="/players">Players</a></li>
     <li><a routerLink="/matches">Matches</a></li>
-    <li><a routerLink="/register">Register</a></li>
-    <li><a routerLink="/login">Login</a></li>
-    <li><a routerLink="/logout">Logout</a></li>
+    <li *ngIf="!(authService.isLoggedIn$ | async)">
+      <a routerLink="/register">Register</a>
+    </li>
+    <li *ngIf="!(authService.isLoggedIn$ | async)">
+      <a routerLink="/login">Login</a>
+    </li>
+    <li *ngIf="authService.isLoggedIn$ | async">
+      <a (click)="authService.logout()" routerLink="/logout">Logout</a>
+    </li>
   </ul>
 </nav>
 <router-outlet />

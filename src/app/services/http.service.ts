@@ -22,6 +22,15 @@ export class HttpService {
   }
 
   registerUser(body: any): Observable<Object> {
-    return this.client.post(this.url + '/users/', body);
+    console.log(body);
+    return this.client.post(this.url + '/register', body);
+  }
+
+  login(body: any): Observable<Object> {
+    return this.client.post(this.url + '/login', body);
+  }
+
+  logout(body: any): Observable<Object> {
+    return this.client.post(this.url + '/logout', body);
   }
 }

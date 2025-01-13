@@ -14,9 +14,8 @@ export class LogoutComponent {
   private httpService = inject(HttpService);
 
   ngOnInit() {
-    // Handle logout logic here
-    console.log('Logging out user');
-    // Redirect to home or login page
-    this.router.navigate(['/']);
+    sessionStorage.removeItem('token'); // Clear the token
+    sessionStorage.removeItem('user'); // Clear user data
+    this.router.navigate(['/login']); // Redirect to login page
   }
 }

@@ -1,3 +1,7 @@
+body {
+  margin-top: 20px;
+}
+
 .auth-container {
   background: #483c76;
   padding: 20px;
