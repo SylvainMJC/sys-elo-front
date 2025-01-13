@@ -29,6 +29,11 @@ export class HttpService {
     return this.client.get(this.url + '/matches/' + matchId);
   }
 
+  createMatch(body: any): Observable<Object> {
+    console.log(body);
+    return this.client.post(this.url + '/matches/', body);
+  }
+
   registerUser(body: any): Observable<Object> {
     console.log(body);
     return this.client.post(this.url + '/register', body);

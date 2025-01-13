@@ -1,5 +1,46 @@
 <div class="matches">
   <h2 class="title">Matches</h2>
+
+  <div class="form-container">
+    <h2>Create a Match</h2>
+    <form (ngSubmit)="onSubmit()" #matchForm="ngForm">
+      <div class="form-group">
+        <label for="player1">Player 1</label>
+        <select
+          id="player1"
+          class="form-control"
+          [(ngModel)]="selectedPlayer1"
+          name="player1"
+          (change)="updatePlayer2Options()"
+          required
+        >
+          <option *ngFor="let player of players" [value]="player.id">
+            {{ player.username }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="player2">Player 2</label>
+        <select
+          id="player2"
+          class="form-control"
+          [(ngModel)]="selectedPlayer2"
+          name="player2"
+          required
+        >
+          <option *ngFor="let player of filteredPlayers" [value]="player.id">
+            {{ player.username }}
+          </option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-submit" [disabled]="!matchForm.valid">
+        Create Match
+      </button>
+    </form>
+  </div>
+
   <table>
     <thead>
       <tr>
@@ -9,7 +50,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let match of matches; let i = index" class="match-row">
-        <td>{{ match.player1 }} vs {{ match.player2 }}</td>
+        <td>
+          {{ match.player1.username }} <i>({{ match.player1.elo }} elo)</i> vs
+          {{ match.player2.username }} <i>({{ match.player2.elo }} elo)</i>
+        </td>
         <td>{{ match.status }}</td>
       </tr>
     </tbody>
