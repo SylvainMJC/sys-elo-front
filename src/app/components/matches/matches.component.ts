@@ -59,8 +59,8 @@ export class MatchesComponent {
 
   onSubmit() {
     if (this.selectedPlayer1 && this.selectedPlayer2) {
-      console.error('this.selectedPlayer1 :' + this.selectedPlayer1);
-      console.error('this.selectedPlayer2 :' + this.selectedPlayer2);
+      // console.error('this.selectedPlayer1 :' + this.selectedPlayer1);
+      // console.error('this.selectedPlayer2 :' + this.selectedPlayer2);
       const subscription = this.httpService
         .createMatch({
           player1: this.selectedPlayer1,
