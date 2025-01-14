@@ -55,4 +55,8 @@ export class HttpService {
   logout(body: any): Observable<Object> {
     return this.client.post(this.url + '/logout', body);
   }
+
+  getStatus(statusId: any): Observable<Object> {
+    return this.client.get(this.url + '/statuses/' + statusId);
+  }
 }

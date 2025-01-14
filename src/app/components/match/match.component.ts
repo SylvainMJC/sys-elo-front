@@ -21,8 +21,7 @@ export class MatchComponent {
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+  fetchMatchData(id: any): void {
     const subscription = this.httpService.getOneMatch(id).subscribe({
       next: (data) => {
         this.match = data;
@@ -35,18 +34,25 @@ export class MatchComponent {
     this.subscriptions.push(subscription);
   }
 
-  changeStatus(match: any, newStatus: string) {
-    const updatedData = {
-      id: match.id,
-      status: newStatus,
-    };
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.fetchMatchData(id);
+  }
 
+  changeStatus(match: any, newStatusId: number) {
     const subscription = this.httpService
       .updateMatch(match.id, {
-        statusName: newStatus,
+        status_id: newStatusId,
       })
       .subscribe({
-        next: (response) => {},
+        next: (response) => {
+          console.log(this.match);
+          // this.match.
+          const id = this.route.snapshot.paramMap.get('id');
+          if (id) {
+            this.fetchMatchData(id); // Refresh the match data
+          }
+        },
         error: (error) => {
           console.error('Match status update failed:', error);
           alert('Failed match status update. Please try again.');

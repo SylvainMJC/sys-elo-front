@@ -34,14 +34,14 @@
         <button
           class="btn-submit"
           *ngIf="match.id_status.name === 'Pending'"
-          (click)="changeStatus(match, 'In Progress')"
+          (click)="changeStatus(match, 2)"
         >
           Start Match
         </button>
         <button
           class="btn-submit"
           *ngIf="match.id_status.name === 'In Progress'"
-          (click)="changeStatus(match, 'Finished')"
+          (click)="changeStatus(match, 3)"
         >
           Finish Match
         </button>
