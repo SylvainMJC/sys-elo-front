@@ -24,7 +24,6 @@ export class MatchesComponent {
   ngOnInit(): void {
     const subscription = this.httpService.getAllMatches().subscribe((data) => {
       this.matches = data;
-      console.log(data);
     });
     this.subscriptions.push(subscription);
   }

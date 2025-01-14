@@ -133,3 +133,14 @@ label {
   background-color: #4c47a2;
   cursor: not-allowed;
 }
+
+.btn_delete {
+  display: flex;
+  justify-content: center;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

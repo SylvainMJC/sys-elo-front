@@ -4,11 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { HttpService } from '../../services/http.service';
+import { ChangeNameModalComponent } from '../change-name-modal/change-name-modal.component';
+
+
+
 
 @Component({
   selector: 'app-player-info',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, ChangeNameModalComponent],
   templateUrl: './player-info.component.html',
   styleUrl: './player-info.component.css',
 })
@@ -20,7 +24,17 @@ export class PlayerInfoComponent {
 
   private subscriptions: Subscription[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  public players: any = [];
+
+  public selectedPlayerId!: number ;
+
+  public isModalOpen: boolean = false;
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {}
+
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -55,4 +69,24 @@ export class PlayerInfoComponent {
     });
     this.subscriptions.push(subscription2);
   }
+
+  deletePlayer(id: number): void {
+    const subscription = this.httpService.deletePlayer(id).subscribe(() => {
+      this.players = this.players.filter((player: any) => player.id !== id);
+      alert('Player deleted successfully');
+      this.router.navigate(['/players']);
+    });
+    this.subscriptions.push(subscription);
+  }
+
+  openModal(playerId: number) {
+    this.selectedPlayerId = playerId;
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  
 }

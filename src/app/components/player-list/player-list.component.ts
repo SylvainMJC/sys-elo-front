@@ -22,7 +22,7 @@ export class PlayerListComponent implements OnInit {
     const subscription = this.httpService.getAllPlayers().subscribe((data) => {
       this.players = data;
       this.sortPlayersByElo();
-      console.log(data);
+      // console.log(data);
     });
     this.subscriptions.push(subscription);
   }

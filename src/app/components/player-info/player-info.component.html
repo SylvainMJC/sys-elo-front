@@ -35,4 +35,18 @@
       </tbody>
     </table>
   </div>
+  <div class="btn_delete" >
+    <button class="btn-submit" (click)="deletePlayer(user.id)">
+      Delete Player
+    </button>
+    <button class="btn-submit" (click)="openModal(user.id)">
+      Change Name
+    </button>
+    <app-change-name-modal
+    *ngIf="isModalOpen"
+    [playerId]="selectedPlayerId"
+    (close)="closeModal()"
+    (nameChanged)="closeModal()"
+  ></app-change-name-modal>
+  </div>
 </div>

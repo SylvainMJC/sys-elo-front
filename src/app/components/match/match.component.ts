@@ -46,7 +46,7 @@ export class MatchComponent {
       })
       .subscribe({
         next: (response) => {
-          console.log(this.match);
+          // console.log(this.match);
           // this.match.
           const id = this.route.snapshot.paramMap.get('id');
           if (id) {
