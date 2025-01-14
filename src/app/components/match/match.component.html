@@ -1,0 +1,52 @@
+<div class="matches" *ngIf="match">
+  <h2 class="title">Match</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Opponents of the match</th>
+        <th>Status</th>
+        <th>Résultats</th>
+        <th>CreatedAt</th>
+        <th>UpdatedAt</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td>{{ match.id }}</td>
+      <td>
+        {{ match.player1.username }} <i>({{ match.player1.elo }} elo)</i> vs
+        {{ match.player2.username }} <i>({{ match.player2.elo }} elo)</i>
+      </td>
+      <td>{{ match.id_status.name }}</td>
+      <td>
+        <p *ngIf="match.result_player1 != match.result_player2">
+          Victory for {{ match.player1.username }} ({{ match.result_player1 }})
+          ({{ match.result_player2 }} for {{ match.player2.username }})
+        </p>
+        <p *ngIf="match.result_player1 === match.result_player2">
+          No results yet, match is not finished
+        </p>
+      </td>
+      <td>{{ match.created_at }}</td>
+      <td>{{ match.updated_at }}</td>
+      <td>
+        <button
+          class="btn-submit"
+          *ngIf="match.id_status.name === 'Pending'"
+          (click)="changeStatus(match, 'In Progress')"
+        >
+          Start Match
+        </button>
+        <button
+          class="btn-submit"
+          *ngIf="match.id_status.name === 'In Progress'"
+          (click)="changeStatus(match, 'Finished')"
+        >
+          Finish Match
+        </button>
+      </td>
+    </tbody>
+  </table>
+  <button class="btn-submit" (click)="onDelete()">Delete Match</button>
+</div>

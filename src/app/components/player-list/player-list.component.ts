@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpService } from '../../services/http.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-player-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './player-list.component.html',
   styleUrl: './player-list.component.css',
 })

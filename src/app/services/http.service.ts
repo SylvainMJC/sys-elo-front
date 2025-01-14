@@ -29,6 +29,15 @@ export class HttpService {
     return this.client.get(this.url + '/matches/' + matchId);
   }
 
+  deleteMatch(matchId: any): Observable<Object> {
+    return this.client.delete(this.url + '/matches/' + matchId);
+  }
+
+  updateMatch(matchId: any, body: any): Observable<Object> {
+    console.log(body);
+    return this.client.patch(this.url + '/matches/' + matchId, body);
+  }
+
   createMatch(body: any): Observable<Object> {
     console.log(body);
     return this.client.post(this.url + '/matches/', body);

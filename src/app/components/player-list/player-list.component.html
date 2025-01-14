@@ -6,10 +6,8 @@
         <th>#</th>
         <th>Pseudonyme</th>
         <th>ELO</th>
-        <th>K/D</th>
-        <th>HS</th>
-        <th>Win Rate</th>
-        <th>Région</th>
+        <th>Inscrit le</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -25,12 +23,11 @@
           {{ player.username }}
         </td>
         <td>{{ player.elo }}</td>
-        <td>player.kd</td>
-        <td>player.hs %</td>
-        <td>player.winRate%</td>
+        <td>{{ player.created_at }}</td>
         <td>
-          <!-- <img *ngIf="player.countryFlag" [src]="player.countryFlag" alt="Country" class="country-flag" /> -->
-          player.region
+          <button class="btn-submit" [routerLink]="['/players', player.id]">
+            View Player Profile
+          </button>
         </td>
       </tr>
     </tbody>

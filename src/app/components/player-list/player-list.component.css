@@ -8,6 +8,19 @@
   font-family: "Arial", sans-serif;
 }
 
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #6c63ff; /* Purple tone similar to the header */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 .title {
   text-align: center;
   font-size: 1.5rem;

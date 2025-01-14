@@ -1,0 +1,38 @@
+<div class="player-info">
+  <div>
+    <h2>Player Informations :</h2>
+    <p>Name : {{ user.username }}</p>
+    <p>Elo : {{ user.elo }}</p>
+    <p>Register date : {{ user.created_at }}</p>
+  </div>
+
+  <div>
+    <br />
+    <br />
+    <br />
+    <h3>Matches of this player :</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>MATCH</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let match of userMatches; let i = index" class="match-row">
+          <td>
+            {{ match.player1.username }} <i>({{ match.player1.elo }} elo)</i> vs
+            {{ match.player2.username }} <i>({{ match.player2.elo }} elo)</i>
+          </td>
+          <td>{{ match.id_status.name }}</td>
+          <td>
+            <button class="btn-submit" [routerLink]="['/matches', match.id]">
+              View Match
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
