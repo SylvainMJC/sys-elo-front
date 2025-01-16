@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: '',
+  apiUrl: 'https://sys-elo-back-y0tl.onrender.com/api',
 };
