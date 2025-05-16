@@ -1,0 +1,11 @@
+<div class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>Change Player Name</h2>
+      <input type="text" placeholder="Enter new name" [(ngModel)]="newName"/>
+      <div class="modal-actions">
+        <button class="btn-submit" (click)="submitChange()">Submit</button>
+        <button class="btn-cancel" (click)="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>

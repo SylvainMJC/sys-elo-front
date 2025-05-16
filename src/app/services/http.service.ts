@@ -29,13 +29,22 @@ export class HttpService {
     return this.client.get(this.url + '/matches/' + matchId);
   }
 
+  deleteMatch(matchId: any): Observable<Object> {
+    return this.client.delete(this.url + '/matches/' + matchId);
+  }
+
+  updateMatch(matchId: any, body: any): Observable<Object> {
+    // console.log(body);
+    return this.client.patch(this.url + '/matches/' + matchId, body);
+  }
+
   createMatch(body: any): Observable<Object> {
-    console.log(body);
+    // console.log(body);
     return this.client.post(this.url + '/matches/', body);
   }
 
   registerUser(body: any): Observable<Object> {
-    console.log(body);
+    // console.log(body);
     return this.client.post(this.url + '/register', body);
   }
 
@@ -45,5 +54,17 @@ export class HttpService {
 
   logout(body: any): Observable<Object> {
     return this.client.post(this.url + '/logout', body);
+  }
+
+  deletePlayer(userId:any): Observable<Object> {
+    return this.client.delete(this.url + '/users/' + userId);
+  }
+
+  updatePlayer(userId: any, body: any): Observable<Object> {
+    return this.client.put(this.url + '/users/' + userId, body);
+  }
+
+  getStatus(statusId: any): Observable<Object> {
+    return this.client.get(this.url + '/statuses/' + statusId);
   }
 }

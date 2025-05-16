@@ -1,0 +1,75 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+}
+
+.modal-content {
+    height: 250px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2d2a45;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    outline: none;
+    padding: 20px;
+    z-index: 1050;
+}
+
+.modal-header, .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    margin: 0;
+}
+
+.close {
+    display: flex;
+    justify-content: flex-end;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+    color:#6c63ff
+}
+.modal-actions{
+    display: flex;
+    
+}
+
+h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
+
+.btn-submit, .btn-cancel {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    margin-right: 10px;
+}

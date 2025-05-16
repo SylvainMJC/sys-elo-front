@@ -21,13 +21,13 @@ export class LoginComponent {
   private subscriptions: Subscription[] = [];
 
   onSubmit() {
-    console.log('Logging in user:', this.email);
+    // console.log('Logging in user:', this.email);
     // Call login API here
     const subscription = this.httpService
       .login({ email: this.email, password: this.password })
       .subscribe({
         next: (response: any) => {
-          console.log('Login successful:', response);
+          // console.log('Login successful:', response);
           this.authService.login(response.token);
           // sessionStorage.setItem('user', JSON.stringify(response.user)); // Optionally save user data
           this.router.navigate(['/']); // Redirect to home or dashboard

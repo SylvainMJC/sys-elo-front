@@ -3,6 +3,7 @@
     <li><a routerLink="/">Home</a></li>
     <li><a routerLink="/players">Players</a></li>
     <li><a routerLink="/matches">Matches</a></li>
+    <li><a routerLink="/create-match">Create Match</a></li>
     <li *ngIf="!(authService.isLoggedIn$ | async)">
       <a routerLink="/register">Register</a>
     </li>

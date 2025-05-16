@@ -1,0 +1,125 @@
+.matches {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #2d2a45;
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  font-family: "Arial", sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #1f1c33;
+}
+
+thead th {
+  text-align: left;
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+tbody tr {
+  border-bottom: 1px solid #444;
+}
+
+tbody tr:hover {
+  background-color: #3d375b;
+}
+
+td {
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.player-name {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.country-flag {
+  width: 20px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.form-container {
+  background-color: #2c2a48; /* Matches the dark container from your image */
+  color: white; /* Matches the light text style */
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 50px auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #3b375e;
+  color: white;
+  font-size: 14px;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px #6c63ff;
+}
+
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #6c63ff; /* Purple tone similar to the header */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #5b52d6;
+}
+
+.btn-submit:disabled {
+  background-color: #4c47a2;
+  cursor: not-allowed;
+}

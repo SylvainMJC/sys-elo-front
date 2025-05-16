@@ -22,7 +22,7 @@ export class RegisterComponent {
   constructor(private router: Router) {}
 
   onSubmit() {
-    console.log('Registering user:', this.username, this.email, this.password);
+    // console.log('Registering user:', this.username, this.email, this.password);
     const subscription = this.httpService
       .registerUser({
         username: this.username,
@@ -31,7 +31,7 @@ export class RegisterComponent {
       })
       .subscribe({
         next: (response) => {
-          console.log('Registration successful:', response);
+          // console.log('Registration successful:', response);
           alert('Registration successful!');
           // Optionally navigate or display a success message here
           this.router.navigate(['/login']); // Redirect to login page
