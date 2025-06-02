@@ -67,4 +67,21 @@ export class HttpService {
   getStatus(statusId: any): Observable<Object> {
     return this.client.get(this.url + '/statuses/' + statusId);
   }
+
+  // ===== Méthodes Redis pour gestion des matchs en temps réel =====
+  
+  startMatch(matchId: any, body: any): Observable<Object> {
+    return this.client.post(this.url + '/matches/' + matchId + '/start', body);
+  }
+  updateLiveScore(matchId: any, body: any): Observable<Object> {
+    return this.client.patch(this.url + '/matches/' + matchId + '/score', body);
+  }
+
+  getLiveMatchData(matchId: any): Observable<Object> {
+    return this.client.get(this.url + '/matches/' + matchId + '/live');
+  }
+
+  endMatch(matchId: any): Observable<Object> {
+    return this.client.post(this.url + '/matches/' + matchId + '/end', {});
+  }
 }

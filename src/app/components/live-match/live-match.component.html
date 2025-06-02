@@ -1,0 +1,68 @@
+<div class="live-match-container" *ngIf="match">
+  <h2 class="title">Live Match Control</h2>
+  
+  <!-- Informations du match -->
+  <div class="match-info">
+    <h3>{{ match.player1.username }} vs {{ match.player2.username }}</h3>
+    <p>Match ID: {{ match.id }}</p>
+    <p class="status">Status: {{ match.id_status.name }}</p>
+  </div>
+
+  <!-- Mode non-live : Bouton pour démarrer -->
+  <div class="match-controls" *ngIf="!isLive">
+    <div class="start-section">
+      <h4>Match not started yet</h4>
+      <button class="btn-start" (click)="startMatch()">
+        🚀 Start Live Match
+      </button>
+    </div>
+  </div>
+
+  <!-- Mode live : Contrôles du score -->
+  <div class="live-controls" *ngIf="isLive && liveData">
+    <div class="score-board">
+      <div class="player-score">
+        <h4>{{ match.player1.username }}</h4>
+        <div class="score-display">{{ liveData.result_player1 || 0 }}</div>
+        <button class="btn-point" (click)="addPoint('player1')">
+          ➕ Add Point
+        </button>
+      </div>
+
+      <div class="vs-separator">VS</div>
+
+      <div class="player-score">
+        <h4>{{ match.player2.username }}</h4>
+        <div class="score-display">{{ liveData.result_player2 || 0 }}</div>
+        <button class="btn-point" (click)="addPoint('player2')">
+          ➕ Add Point
+        </button>
+      </div>
+    </div>
+
+    <div class="live-status">
+      <span class="live-indicator">🔴 LIVE</span>
+      <p>Auto-refresh every 2 seconds</p>
+    </div>
+
+    <div class="match-actions">
+      <button class="btn-end" (click)="endMatch()">
+        🏁 End Match
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="navigation">
+    <button class="btn-back" [routerLink]="['/matches', match.id]">
+      ← Back to Match Details
+    </button>
+    <button class="btn-back" [routerLink]="['/matches']">
+      ← All Matches
+    </button>
+  </div>
+</div>
+
+<div *ngIf="!match" class="loading">
+  <p>Loading match data...</p>
+</div>

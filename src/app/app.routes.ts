@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { LiveMatchComponent } from './components/live-match/live-match.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { MatchFormComponent } from './components/match-form/match-form.component';
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'players/:id', pathMatch: 'full', component: PlayerInfoComponent },
   { path: 'matches', pathMatch: 'full', component: MatchesComponent },
   { path: 'matches/:id', pathMatch: 'full', component: MatchComponent },
+  { path: 'matches/:id/live', pathMatch: 'full', component: LiveMatchComponent },
   { path: 'create-match', pathMatch: 'full', component: MatchFormComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

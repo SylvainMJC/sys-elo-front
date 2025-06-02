@@ -19,6 +19,12 @@
           <button class="btn-submit" [routerLink]="['/matches', match.id]">
             View Match
           </button>
+          <button 
+            class="btn-live" 
+            *ngIf="match.id_status.name === 'Pending' || match.id_status.name === 'In Progress'"
+            [routerLink]="['/matches', match.id, 'live']">
+            🔴 Live
+          </button>
         </td>
       </tr>
     </tbody>
