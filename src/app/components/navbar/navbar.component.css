@@ -34,11 +34,96 @@
   text-shadow: 0px 0px 5px #c3a4ff;
 }
 
+/* 🎮 Discord Menu Styling */
+.discord-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.discord-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.discord-toggle:hover {
+  background-color: rgba(88, 101, 242, 0.2); /* Discord purple with transparency */
+  color: #5865f2; /* Discord brand color */
+}
+
+.dropdown-arrow {
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+}
+
+.discord-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #2f3136; /* Discord dark background */
+  border: 1px solid #40444b;
+  border-radius: 6px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  list-style: none;
+  padding: 8px 0;
+  margin: 5px 0 0 0;
+  min-width: 180px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.discord-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.discord-dropdown li {
+  display: block;
+  margin: 0;
+}
+
+.discord-dropdown a {
+  display: block;
+  padding: 8px 16px;
+  color: #dcddde; /* Discord light text */
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+  border-radius: 0;
+}
+
+.discord-dropdown a:hover {
+  background-color: #5865f2; /* Discord brand color */
+  color: white;
+  text-shadow: none;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .navbar-links {
     flex-direction: column;
     gap: 10px;
     text-align: center;
+  }
+
+  .discord-menu {
+    position: static;
+  }
+  
+  .discord-dropdown {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background-color: rgba(47, 49, 54, 0.9);
+    border-radius: 4px;
+    margin-top: 10px;
   }
 }

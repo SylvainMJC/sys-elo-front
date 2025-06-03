@@ -4,6 +4,21 @@
     <li><a routerLink="/players">Players</a></li>
     <li><a routerLink="/matches">Matches</a></li>
     <li><a routerLink="/create-match">Create Match</a></li>
+
+    <!-- 🎮 NOUVEAU: Menu Discord -->
+    <li class="discord-menu">
+      <a (click)="toggleDiscordMenu()" class="discord-toggle">
+        🎮 Discord Tests
+        <span class="dropdown-arrow">{{ showDiscordMenu ? '▲' : '▼' }}</span>
+      </a>
+      <ul class="discord-dropdown" [class.show]="showDiscordMenu">
+        <li><a (click)="testDiscordConnection()">🧪 Test Connexion</a></li>
+        <li><a (click)="getDiscordStatus()">📊 Statut Discord</a></li>
+        <li><a (click)="simulateDiscordNotification()">🎭 Simuler Notification</a></li>
+        <li><a (click)="testDailyStatistics()">📈 Stats Quotidiennes</a></li>
+      </ul>
+    </li>
+
     <li *ngIf="!(authService.isLoggedIn$ | async)">
       <a routerLink="/register">Register</a>
     </li>

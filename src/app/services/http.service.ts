@@ -84,4 +84,34 @@ export class HttpService {
   endMatch(matchId: any): Observable<Object> {
     return this.client.post(this.url + '/matches/' + matchId + '/end', {});
   }
+
+  // ===== Nouvelles méthodes Discord pour tests manuels =====
+
+  /**
+   * Test la connexion Discord - NOUVELLE VERSION UNIFIÉE
+   */
+  testDiscordConnection(): Observable<any> {
+    return this.client.get<any>(this.url + '/matches/discord/test');
+  }
+
+  /**
+   * Obtient le statut des services Discord
+   */
+  getDiscordStatus(): Observable<any> {
+    return this.client.get<any>(this.url + '/matches/discord/status');
+  }
+
+  /**
+   * Simule une notification Discord
+   */
+  simulateDiscordNotification(): Observable<any> {
+    return this.client.post<any>(this.url + '/matches/discord/simulate', {});
+  }
+
+  /**
+   * Teste les statistiques quotidiennes Discord
+   */
+  testDailyStatistics(): Observable<any> {
+    return this.client.post<any>(this.url + '/matches/discord/daily-stats', {});
+  }
 }
